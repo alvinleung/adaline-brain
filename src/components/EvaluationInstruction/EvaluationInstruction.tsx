@@ -57,12 +57,12 @@ const EvaluationInstruction = ({
     prompt: codeGenerationPrompt,
     isPromptLoading,
     // error,
-  } = useAdalinePrompt(`cf9ab908-aee7-42ab-979e-3301cb9b2bd0`);
+  } = useAdalinePrompt(`1d76e2e7-f6e6-4d15-b8eb-3a43d09fc8e2`);
 
   const {
     prompt: evaluationPromptFromAdaline,
     isPromptLoading: isEvaluationPromptLoading,
-  } = useAdalinePrompt(`c064aa4a-5656-4e52-b1e7-5d50843c2308`);
+  } = useAdalinePrompt(`b86ce033-f116-4e0a-bf31-bbd8a4ef6157`);
 
   const { data: completion } = useQuery({
     queryKey: [evaluationPromptWithVar],
