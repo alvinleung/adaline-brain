@@ -14,7 +14,6 @@ export async function GET(req: Request) {
         },
       }
     );
-    console.log(`Bearer ${process.env.ADALINE_TOKEN}`);
 
     if (!response.ok) {
       throw new Error("network response was not ok");

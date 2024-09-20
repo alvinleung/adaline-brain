@@ -3,8 +3,6 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   const { prompt, model, temperature } = await req.json();
 
-  console.log(`key open ai`, process.env.OPENAI_API_KEY);
-  console.log(model);
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
