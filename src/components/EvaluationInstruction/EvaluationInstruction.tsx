@@ -53,16 +53,26 @@ const EvaluationInstruction = ({
   evaluationPrompt,
   evaluationPromptWithVar,
 }: Props) => {
+  // const {
+  //   prompt: codeGenerationPrompt,
+  //   isPromptLoading,
+  // } = useAdalinePrompt(`1d76e2e7-f6e6-4d15-b8eb-3a43d09fc8e2`);
+  //
+  // const {
+  //   prompt: evaluationPromptFromAdaline,
+  //   isPromptLoading: isEvaluationPromptLoading,
+  // } = useAdalinePrompt(`b86ce033-f116-4e0a-bf31-bbd8a4ef6157`);
+
+  // in ben's workspace
   const {
     prompt: codeGenerationPrompt,
     isPromptLoading,
-    // error,
-  } = useAdalinePrompt(`1d76e2e7-f6e6-4d15-b8eb-3a43d09fc8e2`);
+  } = useAdalinePrompt(`cf9ab908-aee7-42ab-979e-3301cb9b2bd0`);
 
   const {
     prompt: evaluationPromptFromAdaline,
     isPromptLoading: isEvaluationPromptLoading,
-  } = useAdalinePrompt(`b86ce033-f116-4e0a-bf31-bbd8a4ef6157`);
+  } = useAdalinePrompt(`c064aa4a-5656-4e52-b1e7-5d50843c2308`);
 
   const { data: completion } = useQuery({
     queryKey: [evaluationPromptWithVar],
@@ -115,7 +125,7 @@ const EvaluationInstruction = ({
     const result = await fetchOpenAI(
       codeGenerationPrompt
         .replace("{instruction}", prompt)
-        .replace("{prompt}", evaluationPrompt)
+        .replace("{prompt}", evaluationPrompt),
     );
     onCodeChange(result.choices[0].message.content);
     setIsGenerating(false);
@@ -140,7 +150,7 @@ const EvaluationInstruction = ({
       const result = await evaluate(
         evaluationPromptWithVar,
         completion,
-        responseTime
+        responseTime,
       );
       console.log(completion);
       setResult(result);
